@@ -1,7 +1,7 @@
 import random
 import time
 import copy
-symbols = ["\U0001F600","\U0001F603","\U0001F604","\U0001F601","\U0001F606","\U0001F605","\U0001F923","\U0001F602","\U0001F642","\U0001F643","\U0001F609","\U0001F60A","\U0001F607"]
+symbols = ["\U0001F600","\U0001F603","\U0001F604","\U0001F601","\U0001F606","\U0001F605","\U0001F923","\U0001F602","\U0001F642","\U0001F643","\U0001F609","\U0001F60A","\U0001F607","❤️","😒","😘","💕","🙌","🎶","🤦‍♂️","🤗"]
 
 
 def create_boards(size: int, symbols: list[str]) ->dict:
@@ -33,7 +33,8 @@ def create_boards(size: int, symbols: list[str]) ->dict:
 # board_game=boards["board_game"]
 
 def choose_card1(boards):
-    print(boards["board_game"])
+    # print(boards["board_game"])
+    print_beutiful(boards["board_game"])
     try:
         row=int(input("choose location card first,2 points,now the first "))
         col=int(input("now the second "))
@@ -48,7 +49,7 @@ def choose_card1(boards):
     return row,col
 
 def choose_card2(boards):
-    print(boards["board_game"])
+    print_beutiful(boards["board_game"])
     try:
         row=int(input("choose location card second,2 points,now the first "))
         col=int(input("now the second "))
@@ -66,7 +67,7 @@ def choose_card2(boards):
 # point1=choose_card1(boards)
 
 def reveal_tile(boards,point1) -> str | None:
-    print(boards["board"][point1[0]][point1[1]])
+    print_beutiful(boards["board"][point1[0]][point1[1]])
     boards["board_game"][point1[0]][point1[1]]=boards["board"][point1[0]][point1[1]]
     return boards["board"][point1[0]][point1[1]]
 # card1=reveal_tile(board,point1)
@@ -74,18 +75,21 @@ def reveal_tile(boards,point1) -> str | None:
 # card2=reveal_tile(board,point2)
 
 def hide_tiles(boards,point1,point2) -> None:
-    print(boards["board_game"])
+    print_beutiful(boards["board_game"])
     if boards["board"][point1[0]][point1[1]]!=boards["board"][point2[0]][point2[1]]:
         boards["board_game"][point1[0]][point1[1]]="X"
         boards["board_game"][point2[0]][point2[1]]="X"
         print("cards not same")
         time.sleep(3)
-        print(boards["board_game"])
+        # print_beutiful(boards["board_game"])
         return True
     return False
 # hide_tiles(boards,point1,point2)
 
-
+def print_beutiful(board):
+    for row in board:
+        print(row)
+    return
 
 
 

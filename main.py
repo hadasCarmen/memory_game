@@ -15,4 +15,4 @@ def play_memory_game(size):
     print("you succeed in",mone,"tries")
     return
 
-play_memory_game(2)
+play_memory_game(6)
