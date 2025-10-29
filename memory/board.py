@@ -39,9 +39,11 @@ def choose_card1(boards):
         col=int(input("now the second "))
     except:
         return choose_card1(boards)
-    if row>len(boards["board"])or col>len(boards["board"]) :
+    if row>len(boards["board"])-1 or col>len(boards["board"])-1 :
+        print("you need in range")
         return choose_card1(boards)
-    if boards["board_game"][row][col]!="X":
+    elif boards["board_game"][row][col]!="X":
+        print("this choose before,choose another")
         return choose_card1(boards)
     return row,col
 
@@ -51,10 +53,13 @@ def choose_card2(boards):
         row=int(input("choose location card second,2 points,now the first "))
         col=int(input("now the second "))
     except:
+        print("you need number")
         return choose_card2(boards)
-    if row>len(boards["board"])or col>len(boards["board"]) :
+    if row>len(boards["board"])-1 or col>len(boards["board"])-1 :
+        print("you need in range")
         return choose_card1(boards)
-    if boards["board_game"][row][col]!="X":
+    elif boards["board_game"][row][col]!="X":
+        print("this choose before,choose another")
         return choose_card1(boards)
     return row,col
 
